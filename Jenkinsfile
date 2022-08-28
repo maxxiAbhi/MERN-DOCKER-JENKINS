@@ -9,6 +9,11 @@ pipeline{
         '''
       }
         }
+         stage("Down Docker container"){
+             steps {
+                sh "sudo docker-compose down"
+             }
+        }
          stage("Prune Docker container"){
             steps{
                 sh 'sudo docker system prune -a -f'
