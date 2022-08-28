@@ -6,6 +6,7 @@ if(connect){
     return connect
 }else{
     console.log('DB connect unsucessfull')
+    return connect
 }
 }
 module.exports=connection
