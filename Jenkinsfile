@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Down all Containers"){
             steps{
-                sh 'docker compose down'
+                sh 'docker-compose down'
             }
         }
          stage("Prune Docker container"){
@@ -13,8 +13,8 @@ pipeline{
         }
         stage("Start Docker container"){
             steps{
-                sh 'docker compose up -d'
-                sh 'docker compose ps'
+                sh 'docker-compose up -d'
+                sh 'docker-compose ps'
             }
         }
     }
