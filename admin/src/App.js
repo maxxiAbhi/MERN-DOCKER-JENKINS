@@ -15,6 +15,7 @@ function App() {
       }
 
     }
+    console.log(BASE_URL)
     const response = await axios.post(`${BASE_URL}/addtodo`,{title,description:discription},config);
    if(response.data.status===200){
     setTitle('')
