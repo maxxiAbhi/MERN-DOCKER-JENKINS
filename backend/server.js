@@ -4,6 +4,7 @@ const cors=require('cors')
 const PORT=process.env.PORT || 8000
 const Todos=require('./todoModel')
 require('./db')()
+const dbdata=require('./db')()
 
 
 
@@ -15,7 +16,7 @@ app.use(cors())
 
 
 app.get('/',(req,res)=>{
-    res.send({msg:"hello world!"});
+    res.send({msg:"hello world!",dbdata});
 })
 app.post('/api/addtodo',async(req,res)=>{
   try {
@@ -28,10 +29,10 @@ app.post('/api/addtodo',async(req,res)=>{
     if(todo){
         res.send({msg:"todo added successfully",status:200});
     }else{
-        res.send({msg:"todo not added",status:400});
+        res.send({msg:"todo not added",status:400,todo});
     }
   } catch (error) {
-    res.send({msg:"something went wrong",status:400});
+    res.send({msg:"something went wrong",status:400,error});
   }
     
 })
@@ -42,10 +43,10 @@ app.get('/api/getalltodos',async(req,res)=>{
         if(todo){
             res.send({msg:"todo added successfully",data:todo,status:200});
         }else{
-            res.send({msg:"todo not get",status:400});
+            res.send({msg:"todo not get",status:400,todo});
         }
     } catch (error) {
-      res.send({msg:"something went wrong",status:400});
+      res.send({msg:"something went wrong",status:400,error});
     }
       
   })
