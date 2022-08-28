@@ -21,9 +21,9 @@ pipeline{
             }
         }
     }
-     post {
-      always {
-          sh "sudo docker-compose down"
-      }
-     }
+    //  post {
+    //   always {
+    //       sh "sudo docker-compose down"
+    //   }
+    //  }
 }
