@@ -23,8 +23,6 @@ services:
     volumes:
       - ./backend:/backend
       - /backend/node_modules
-    depends_on:
-      - mongo
   frontend:
     build: ./frontend
     container_name: frontend
