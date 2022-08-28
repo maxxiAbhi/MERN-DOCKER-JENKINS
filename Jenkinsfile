@@ -11,19 +11,19 @@ pipeline{
         }
          stage("Prune Docker container"){
             steps{
-                sh 'docker system prune -a -f'
+                sh 'sudo docker system prune -a -f'
             }
         }
         stage("Start Docker container"){
             steps{
-                sh 'docker-compose up -d'
-                sh 'docker-compose ps'
+                sh 'sudo docker-compose up -d'
+                sh 'sudo docker-compose ps'
             }
         }
     }
      post {
       always {
-          sh "docker-compose down"
+          sh "sudo docker-compose down"
       }
      }
 }
