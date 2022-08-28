@@ -1,10 +1,13 @@
 pipeline{
     agent any
     stages{
-        stage("Down all Containers"){
-            steps{
-                sh 'docker-compose down'
-            }
+        stage("verify tooling"){
+             steps {
+        sh '''
+          docker --version
+          docker-compose --version 
+        '''
+      }
         }
          stage("Prune Docker container"){
             steps{
