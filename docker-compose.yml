@@ -1,16 +1,11 @@
 version: "3"
 services:
-  mongodb:
+  mongo:
     image: mongo
-    container_name: mongodb
-    restart: unless-stopped
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=1234
     ports:
-      - "27017:27017"
+      - 27017:27017
     volumes:
-      - ./ db:/data/db
+      - mongodb:/data/db
   backend:
     build: ./backend
     container_name: backend
